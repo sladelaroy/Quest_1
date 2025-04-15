@@ -1,0 +1,127 @@
+.fourth-div {
+  position: relative;
+  padding: 0px 144px 120px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.fourth-div h2 {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 52px;
+  letter-spacing: -1%;
+}
+.fourth-div .body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 70px;
+}
+
+.fourth-div .body .body-cont {
+  width: fit-content;
+  gap: 18px;
+}
+
+.fourth-div .body .body-cont img {
+  width: 900px;
+}
+
+.fourth-div .body .body-cont h2 {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 46px;
+  letter-spacing: -1.4%;
+  width: fit-content;
+}
+
+.fourth-div .body .body-cont p {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 26px;
+  letter-spacing: -1%;
+  color: #575757;
+  width: fit-content;
+  width: 100%;
+}
+/* CSS Animations */
+
+/* Header: starts off shifted down and hidden */
+.fourth-div .header {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+.fourth-div .header.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image Animations for each .body-cont */
+/* All images start hidden; their initial X offset depends on container alignment */
+.fourth-div .body-cont img {
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+/* For body-cont items without margin-auto, slide from the left */
+.fourth-div .body-cont:not([style*="margin-left: auto"]) img {
+  transform: translateX(-50px);
+}
+/* For body-cont items with margin-left: auto, slide from the right */
+.fourth-div .body-cont[style*="margin-left: auto"] img {
+  transform: translateX(50px);
+}
+/* When in view, reset transform and opacity */
+.fourth-div .body-cont.in-view img {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Text (headings and paragraphs) inside body-cont animate in from below */
+.fourth-div .body-cont h2,
+.fourth-div .body-cont p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+.fourth-div .body-cont.in-view h2,
+.fourth-div .body-cont.in-view p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .fourth-div {
+    padding: 58px 14px;
+    gap: 7px;
+  }
+
+  .fourth-div h2 {
+    font-size: 18px;
+  }
+
+  .fourth-div .body .body-cont {
+    width: 100%;
+    gap: 9px;
+  }
+
+  .fourth-div .body .body-cont br {
+    display: none;
+  }
+
+  .fourth-div .body .body-cont h2 {
+    font-size: 16px;
+  }
+  .fourth-div .body .body-cont p {
+    font-size: 13px;
+  }
+
+  .fourth-div .body .body-cont img {
+    width: 100%;
+  }
+}

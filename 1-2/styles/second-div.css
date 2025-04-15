@@ -1,0 +1,158 @@
+.second-div {
+  position: relative;
+  padding: 100px 144px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.second-div .header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 87px;
+  align-items: center;
+}
+
+.second-div .header h2 {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 52px;
+  letter-spacing: -1%;
+  text-align: center;
+  color: #00427a;
+  margin-bottom: 17px;
+}
+
+.second-div .header p {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  letter-spacing: -1%;
+  text-align: center;
+  color: #575757;
+  width: 40vw;
+}
+
+.second-div .info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 82px;
+}
+
+.second-div .info .info-cont {
+  margin: 0 24px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-div .info .info-cont p {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: -1%;
+  text-align: center;
+  color: #f58220;
+  margin-bottom: 7px;
+  width: max-content;
+}
+
+.second-div .info .info-cont h1 {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 45px;
+  letter-spacing: -1%;
+  text-align: center;
+  color: #00427a;
+  width: fit-content;
+}
+
+.second-div .background-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+}
+
+/* Animation start states (won't affect layout) */
+.second-div .header h2, .second-div .header p, .info .info-cont, .background-img {
+  opacity: 0;
+}
+
+/* Animation classes for transitions — only applied when in view */
+
+.second-div .header h2.slide-up, .second-div
+ .header p.slide-up {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.second-div .header h2, .second-div
+.header p {
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.second-div .info .info-cont.slide-left {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.second-div 
+.info .info-cont {
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.second-div .background-img.slide-up-img {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.second-div 
+.background-img {
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+
+@media (max-width: 768px) {
+  .second-div {
+    padding: 186px 16px;
+  }
+  .second-div .header h2 {
+    font-size: 20px;
+    line-height: 32px;
+    margin-bottom: 8px;
+  }
+
+  .second-div .header p {
+    font-size: 14px;
+    line-height: 22px;
+    width: fit-content;
+  }
+
+  .second-div .info {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .second-div .info .info-cont p {
+    font-size: 18px;
+  }
+  .second-div .info .info-cont h1 {
+    font-size: 28px;
+    width: 40vw;
+  }
+}

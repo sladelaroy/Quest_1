@@ -1,0 +1,213 @@
+.third-div {
+  position: relative;
+  padding: 160px 144px 0px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  gap: 46px;
+}
+
+.third-div .header {
+  width: 43vw;
+}
+
+.third-div .header h2 {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 35px;
+  letter-spacing: -1%;
+  color: #00427a;
+}
+
+.third-div .header h1 {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 52px;
+  letter-spacing: -1%;
+  margin-bottom: 18px;
+}
+
+.third-div .header p {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  letter-spacing: -1%;
+  color: #2c2c2c;
+}
+
+.third-div .body {
+  width: fit-content;
+  display: flex;
+  margin: 0 auto;
+  gap: 58px;
+}
+.third-div .body .body-cont img {
+  width: 335px;
+}
+
+.third-div .body .body-cont h4 {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 33px;
+  letter-spacing: -1%;
+}
+.third-div .background {
+  position: absolute;
+  object-fit: cover;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  opacity: 0.3;
+}
+
+.third-div .certificate {
+  display: none;
+}
+/* Initial states */
+.third-div .header h2,
+.third-div .header h1,
+.third-div .header p,
+.third-div .certificate img,
+.third-div .certificate .body h2,
+.third-div .certificate .body p,
+.third-div .body .body-cont,
+.third-div .background {
+  opacity: 0;
+}
+
+/* Slide up for header and certificate elements */
+.third-div .header h2.slide-up,
+.third-div .header h1.slide-up,
+.third-div .header p.slide-up,
+.third-div .certificate img.slide-up,
+.third-div .certificate .body h2.slide-up,
+.third-div .certificate .body p.slide-up {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.third-div .header h2,
+.third-div .header h1,
+.third-div .header p,
+.third-div .certificate img,
+.third-div .certificate .body h2,
+.third-div .certificate .body p {
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Slide from left for body-cont elements */
+.third-div .body .body-cont.slide-left {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.third-div .body .body-cont {
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Background image slide-up if you want */
+.third-div .background.slide-up-img {
+  opacity: 0.3;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.third-div .background {
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+
+@media (max-width: 768px) {
+  .third-div {
+    position: relative;
+    padding: 58px 14px;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 46px;
+  }
+
+  .third-div .header {
+    width: 100%;
+  }
+
+  .third-div .header h2 {
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: -1%;
+  }
+
+  .third-div .header h1 {
+    font-family: SpoqaHanSans;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: -1%;
+  }
+
+  .third-div .header p {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: -1%;
+  }
+  .third-div .certificate img {
+    display: block;
+  }
+
+  .third-div .certificate h2 {
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 34px;
+    letter-spacing: -1%;
+    text-align: center;
+  }
+  .third-div .certificate p {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: -1%;
+    text-align: center;
+    color: #2c2c2c;
+  }
+
+  .third-div .body {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .third-div .body .body-cont, .third-div .body .body-cont img {
+    width: 100%;
+  }
+
+  .third-div .body .body-cont h4 {
+    font-family: SpoqaHanSans;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -1%;
+  }
+
+  .third-div .background {
+    height: 100%;
+  }
+}
