@@ -1,139 +1,158 @@
 .second-div {
-  background-color: #242424;
-  height: 100%;
-  padding: 116px 144px;
-}
-
-.second-div-container {
+  position: relative;
+  padding: 100px 144px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 29px;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.second-div .body {
-  display: flex;
-  gap: 14px;
-  height: 452px;
-}
-
-.second-div .title {
+.second-div .header {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  margin-bottom: 87px;
+  align-items: center;
 }
 
-.second-div .title .p1 {
+.second-div .header h2 {
   font-family: Inter;
   font-weight: 700;
-  font-size: 29px;
-  line-height: 46px;
-  letter-spacing: -1.4%;
-  color: white;
-}
-
-.second-div .title .p2 {
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 29px;
-  line-height: 46px;
+  font-size: 35px;
+  line-height: 52px;
   letter-spacing: -1%;
-  color: white;
+  text-align: center;
+  color: #00427a;
+  margin-bottom: 17px;
 }
 
-.second-div .title s {
-  font-family: Inter;
-  font-weight: 700;
-  font-size: 29px;
-  line-height: 46px;
-  letter-spacing: -1%;
-  color: #f58220;
-}
-
-
-
-.show-div img {
-  width: 100%;
-}
-.show-div {
-  width: 364px;
-  height: 365px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.second-div .show-div:first-of-type h2 {
-  font-family: Inter;
-  font-weight: 700;
-  font-size: 29px;
-  line-height: 64px;
-  letter-spacing: -1.4%;
-  color: #f58220;
-}
-.show-div h4 {
+.second-div .header p {
   font-family: Inter;
   font-weight: 400;
   font-size: 14px;
   line-height: 23px;
-  letter-spacing: -1.4%;
-  color: #7d7d7d;
+  letter-spacing: -1%;
+  text-align: center;
+  color: #575757;
+  width: 40vw;
 }
 
-.show-div .line {
-  height: 1px;
-  width: 100%;
-  background-color: #575757;
+.second-div .info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 82px;
 }
-.show-div .line2 {
+
+.second-div .info .info-cont {
+  margin: 0 24px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-div .info .info-cont p {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: -1%;
+  text-align: center;
+  color: #f58220;
+  margin-bottom: 7px;
+  width: max-content;
+}
+
+.second-div .info .info-cont h1 {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 45px;
+  letter-spacing: -1%;
+  text-align: center;
+  color: #00427a;
+  width: fit-content;
+}
+
+.second-div .background-img {
   position: absolute;
-  height: 3px;
-  width: 58%;
-  background-color: #f58220;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
 }
 
-/* initial state */
-.title, .show-div {
+/* Animation start states (won't affect layout) */
+.second-div .header h2, .second-div .header p, .info .info-cont, .background-img {
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
 }
 
-/* when active */
-.title.active, .show-div.active {
+/* Animation classes for transitions — only applied when in view */
+
+.second-div .header h2.slide-up, .second-div
+ .header p.slide-up {
   opacity: 1;
   transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-
-@media (max-width: 900px) {
-  .second-div {
-    padding: 116px 48px;
-  }
+.second-div .header h2, .second-div
+.header p {
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
+.second-div .info .info-cont.slide-left {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.second-div 
+.info .info-cont {
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.second-div .background-img.slide-up-img {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.second-div 
+.background-img {
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
 
 @media (max-width: 768px) {
   .second-div {
-    padding: 116px 14px;
-    align-items: center;
+    padding: 186px 16px;
   }
-  .second-div .body {
-    display: flex;
+  .second-div .header h2 {
+    font-size: 20px;
+    line-height: 32px;
+    margin-bottom: 8px;
+  }
+
+  .second-div .header p {
+    font-size: 14px;
+    line-height: 22px;
+    width: fit-content;
+  }
+
+  .second-div .info {
     flex-direction: column;
     align-items: center;
-    gap: 38px;
-    height: auto;
+    gap: 30px;
   }
-  .second-div .title {
-    width: 70%;
-  }
-  .second-div .title .p1,
-  .second-div .title .p2 {
+
+  .second-div .info .info-cont p {
     font-size: 18px;
-    line-height: 30px;
   }
-  .second-div .title s {
-    font-size: 20px;
-    line-height: 34px;
+  .second-div .info .info-cont h1 {
+    font-size: 28px;
+    width: 40vw;
   }
 }
