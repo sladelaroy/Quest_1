@@ -1,131 +1,127 @@
 .fourth-div {
-  background-color: #242424;
+  position: relative;
+  padding: 0px 144px 120px;
   height: 100%;
-  padding: 116px 144px;
-}
-
-.fourth-div-container {
   display: flex;
   flex-direction: column;
-  gap: 29px;
-  justify-content: space-between;
+  gap: 70px;
 }
 
+.fourth-div h2 {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 52px;
+  letter-spacing: -1%;
+}
 .fourth-div .body {
   display: flex;
-  gap: 13px;
-  height: 452px;
-}
-
-.fourth-div .title {
-  display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 70px;
 }
 
-.fourth-div .header-text {
-  width: 232px;
+.fourth-div .body .body-cont {
+  width: fit-content;
+  gap: 18px;
 }
 
-.fourth-div .title .p2 {
-  font-family: Inter;
-  font-weight: 400;
-  font-size: 23px;
-  line-height: 46px;
-  letter-spacing: -1%;
-  color: white;
+.fourth-div .body .body-cont img {
+  width: 900px;
 }
 
-.fourth-div .title s {
+.fourth-div .body .body-cont h2 {
   font-family: Inter;
   font-weight: 700;
-  font-size: 23px;
+  font-size: 28px;
   line-height: 46px;
-  letter-spacing: -1%;
-  color: #F58220;
-}
-
-.show-div img {
-  width: 100%;
-}
-.show-div {
-  width: 364px;
-  height: 365px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.show-div h2 {
-  font-family: Inter;
-  font-weight: 700;
-  font-size: 23px;
-  line-height: 64px;
   letter-spacing: -1.4%;
-  color: white;
+  width: fit-content;
 }
-.show-div h4 {
+
+.fourth-div .body .body-cont p {
   font-family: Inter;
   font-weight: 400;
   font-size: 13px;
-  line-height: 23px;
-  letter-spacing: -1.4%;
-  color: #7d7d7d;
+  line-height: 26px;
+  letter-spacing: -1%;
+  color: #575757;
+  width: fit-content;
+  width: 100%;
 }
+/* CSS Animations */
 
-/* Hidden initially */
-.fourth-div .title,
-.fourth-div .show-div {
+/* Header: starts off shifted down and hidden */
+.fourth-div .header {
   opacity: 0;
   transform: translateY(50px);
-  transition: all 0.6s ease;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
 }
-
-/* Active state when in view */
-.fourth-div.active .title {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.2s;
-}
-
-.fourth-div.active .show-div {
+.fourth-div .header.in-view {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Image Animations for each .body-cont */
+/* All images start hidden; their initial X offset depends on container alignment */
+.fourth-div .body-cont img {
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+/* For body-cont items without margin-auto, slide from the left */
+.fourth-div .body-cont:not([style*="margin-left: auto"]) img {
+  transform: translateX(-50px);
+}
+/* For body-cont items with margin-left: auto, slide from the right */
+.fourth-div .body-cont[style*="margin-left: auto"] img {
+  transform: translateX(50px);
+}
+/* When in view, reset transform and opacity */
+.fourth-div .body-cont.in-view img {
+  opacity: 1;
+  transform: translateX(0);
+}
 
-@media (max-width: 900px) {
-  .fourth-div {
-    padding: 116px 48px;
-  }
+/* Text (headings and paragraphs) inside body-cont animate in from below */
+.fourth-div .body-cont h2,
+.fourth-div .body-cont p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+.fourth-div .body-cont.in-view h2,
+.fourth-div .body-cont.in-view p {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
   .fourth-div {
-    padding: 116px 13px;
-    align-items: center;
-  }
-  .fourth-div .body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 38px;
-    height: auto;
-  }
-  .fourth-div .title {
-    width: 70%;
-  }
-  .fourth-div .title .p1,
-  .fourth-div .title .p2 {
-    font-size: 18px;
-    line-height: 30px;
-  }
-  .fourth-div .title s {
-    font-size: 20px;
-    line-height: 34px;
+    padding: 58px 14px;
+    gap: 7px;
   }
 
-  .fourth-div .header-text {
-    width: 174px;
+  .fourth-div h2 {
+    font-size: 18px;
+  }
+
+  .fourth-div .body .body-cont {
+    width: 100%;
+    gap: 9px;
+  }
+
+  .fourth-div .body .body-cont br {
+    display: none;
+  }
+
+  .fourth-div .body .body-cont h2 {
+    font-size: 16px;
+  }
+  .fourth-div .body .body-cont p {
+    font-size: 13px;
+  }
+
+  .fourth-div .body .body-cont img {
+    width: 100%;
   }
 }
